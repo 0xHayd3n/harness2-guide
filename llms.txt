@@ -1,0 +1,20 @@
+# Harness² independent reading guide
+
+> A source-pinned reading companion, not the authors' implementation or a reproduction. Source: arXiv:2610.14224v1, 37 pages. All research results are author-reported.
+
+- [Overview](README.md): thesis, reading routes, qualified findings.
+- [Agent instructions](AGENTS.md): source fidelity and factual traps.
+- [Concepts](docs/01-concepts.md): execution/improvement harnesses and eight components.
+- [Method](docs/02-method.md): Propose-Probe-Compose, recursion, selection, reflection.
+- [Results](docs/03-results.md): protocols, metrics, baselines, main and supplementary findings.
+- [Critical reading](docs/04-critical-reading.md): limitations, failure cases, interpretation.
+- [Paper map](docs/05-paper-map.md): every section, appendix, figure, table, equation, prompt.
+- [Discussion](docs/06-discussion-and-reproduction.md): research questions and reproduction planning.
+- [Sources](SOURCES.md): official PDF fallback, hash, version and release discrepancies.
+- [Verification](VERIFICATION.md): checks and practical limits.
+- [Claims](metadata/claims.json): structured claims with evidence pages and caveats.
+- [Paper metadata](metadata/paper.json): exact version and authors.
+- [Source records](metadata/sources.json): source roles and observed status.
+- [Reported results](data/reported-results.json): attributed table transcriptions and derived summaries.
+
+Do not infer verified correctness from probes or selection. The next task resets to H0; only the improvement library persists. See the v1 paper for primary evidence: https://arxiv.org/pdf/2610.14224v1

@@ -1,0 +1,307 @@
+{
+  "paper_version": "2610.14224v1",
+  "claims": [
+    {
+      "id": "M01",
+      "kind": "method",
+      "claim": "Model weights, stage instructions, and decision rule remain fixed; the improvement library evolves across tasks.",
+      "evidence": [
+        {
+          "source_id": "paper-v1",
+          "pages": [
+            4,
+            7
+          ],
+          "locator": "Sections 2.1 and 2.3"
+        }
+      ],
+      "caveat": "Do not describe training or algorithm self-rewriting."
+    },
+    {
+      "id": "M02",
+      "kind": "method",
+      "claim": "Each new task starts at the common base execution harness H0; prior components are selectively reused through improvement.",
+      "evidence": [
+        {
+          "source_id": "paper-v1",
+          "pages": [
+            4,
+            7
+          ],
+          "locator": "Sections 2.1 and 2.3"
+        }
+      ],
+      "caveat": "Execution harnesses are not automatically carried forward between tasks."
+    },
+    {
+      "id": "M03",
+      "kind": "method",
+      "claim": "Parallel k controls one population update with k invariant candidates, k domain candidates, and k compositions.",
+      "evidence": [
+        {
+          "source_id": "paper-v1",
+          "pages": [
+            5,
+            6
+          ],
+          "locator": "Section 2.2.2; Equation 2; Figure 4"
+        }
+      ],
+      "caveat": "Width, not k serial generations; equal k is not equal compute across methods."
+    },
+    {
+      "id": "M04",
+      "kind": "method",
+      "claim": "For k > 1 the selector chooses an existing anonymized output without synthesis; k=1 bypasses selection.",
+      "evidence": [
+        {
+          "source_id": "paper-v1",
+          "pages": [
+            6,
+            35,
+            36
+          ],
+          "locator": "Final Selection; Prompt 5"
+        }
+      ],
+      "caveat": "Adoption is not verified optimality or correctness; base outputs are eligible."
+    },
+    {
+      "id": "R01",
+      "kind": "reported",
+      "claim": "One-step Harness2 improves the base metric in all twelve benchmark/configuration pairs.",
+      "evidence": [
+        {
+          "source_id": "paper-v1",
+          "pages": [
+            8,
+            9
+          ],
+          "locator": "Tables 1-2"
+        }
+      ],
+      "caveat": "Two models x two initial harnesses x three benchmark metrics; not every competing baseline/domain is beaten."
+    },
+    {
+      "id": "R02",
+      "kind": "reported",
+      "claim": "The largest one-step WorkBuddy macro-average gain is 11.5 points for GLM-5/OpenCode: 64.2 to 75.7.",
+      "evidence": [
+        {
+          "source_id": "paper-v1",
+          "pages": [
+            8
+          ],
+          "locator": "Table 1"
+        }
+      ],
+      "caveat": "Absolute points on an unweighted three-domain mean; not relative percent."
+    },
+    {
+      "id": "R03",
+      "kind": "reported",
+      "claim": "The largest one-step JobBench gain is 4.5 points for Gemini 3.5 Flash/OpenCode: 31.5 to 36.0.",
+      "evidence": [
+        {
+          "source_id": "paper-v1",
+          "pages": [
+            9
+          ],
+          "locator": "Table 2"
+        }
+      ],
+      "caveat": "JobBench evaluates 34 held-out tasks with weighted rubric scoring."
+    },
+    {
+      "id": "R04",
+      "kind": "reported",
+      "claim": "The largest one-step LAB Partial gain is 11.8 percentage points for GLM-5/OpenCode: 59.6 to 71.4.",
+      "evidence": [
+        {
+          "source_id": "paper-v1",
+          "pages": [
+            9
+          ],
+          "locator": "Table 2"
+        }
+      ],
+      "caveat": "Criterion pass rate, not fully solved task rate; total criterion denominator unspecified."
+    },
+    {
+      "id": "R05",
+      "kind": "reported",
+      "claim": "Gemini 3.5 Flash/Codex on LAB has Meta-Harness 76.5 versus one-step Harness2 75.6.",
+      "evidence": [
+        {
+          "source_id": "paper-v1",
+          "pages": [
+            9
+          ],
+          "locator": "Table 2"
+        }
+      ],
+      "caveat": "A baseline exception; three-run means and SDs do not supply a significance test."
+    },
+    {
+      "id": "R06",
+      "kind": "reported",
+      "claim": "Removing the library/scoping/composition lowers WorkBuddy and JobBench scores in the tested k=1 Gemini/OpenCode ablation.",
+      "evidence": [
+        {
+          "source_id": "paper-v1",
+          "pages": [
+            10
+          ],
+          "locator": "Table 3"
+        }
+      ],
+      "caveat": "Limited tested configuration; not an additive component decomposition."
+    },
+    {
+      "id": "R07",
+      "kind": "reported",
+      "claim": "Parallel k=5 increases main-table scores over k=1 by 2.9-3.9 WorkBuddy points, 3.0-4.2 JobBench points, and 2.6-6.7 LAB percentage points.",
+      "evidence": [
+        {
+          "source_id": "paper-v1",
+          "pages": [
+            8,
+            9
+          ],
+          "locator": "Tables 1-2; + Recursion rows"
+        }
+      ],
+      "caveat": "WorkBuddy ranges refer to Avg., not individual domains. Rows are mean deltas; k=5 SDs absent."
+    },
+    {
+      "id": "R08",
+      "kind": "reported",
+      "claim": "A completed-library leave-one-out rerun changes WorkBuddy 77.5 to 79.4 and JobBench 36.0 to 37.7.",
+      "evidence": [
+        {
+          "source_id": "paper-v1",
+          "pages": [
+            24
+          ],
+          "locator": "Appendix E.2; Figure 11"
+        }
+      ],
+      "caveat": "Retrospective offline reuse includes later-task entries; repeated execution may contribute."
+    },
+    {
+      "id": "R09",
+      "kind": "reported",
+      "claim": "Post-improvement removal of skills reduces the WorkBuddy mean from 80.8 to 75.5; script removal gives 77.1; prompt-group removal gives 79.3.",
+      "evidence": [
+        {
+          "source_id": "paper-v1",
+          "pages": [
+            23
+          ],
+          "locator": "Appendix E.1; Table 6"
+        }
+      ],
+      "caveat": "Gemini/OpenCode k=5; no reoptimization; effects not additive."
+    },
+    {
+      "id": "R10",
+      "kind": "reported",
+      "claim": "WorkBuddy tool-error rate falls from 0.8% to 0.5%; JobBench and LAB tool-call counts increase after refinement.",
+      "evidence": [
+        {
+          "source_id": "paper-v1",
+          "pages": [
+            25
+          ],
+          "locator": "Appendix E.4; Table 7"
+        }
+      ],
+      "caveat": "WorkBuddy change is -0.3 percentage points or -37.5% relative; lower error rate is distinct from fewer calls."
+    },
+    {
+      "id": "R11",
+      "kind": "reported",
+      "claim": "The failure analysis includes selection of a 55-point output despite an available 95-point candidate.",
+      "evidence": [
+        {
+          "source_id": "paper-v1",
+          "pages": [
+            26
+          ],
+          "locator": "Appendix E.6; Figure 14"
+        }
+      ],
+      "caveat": "Retrospective evaluation scores were hidden from the selector; displayed reference is 96."
+    },
+    {
+      "id": "M05",
+      "kind": "method",
+      "claim": "Main benchmark means and SDs are over three independently shuffled streams; WorkBuddy Avg. is a domain macro-average.",
+      "evidence": [
+        {
+          "source_id": "paper-v1",
+          "pages": [
+            7,
+            8,
+            18,
+            19,
+            20
+          ],
+          "locator": "Experiment Setup; Table 1; Appendix B"
+        }
+      ],
+      "caveat": "Evaluation populations: WorkBuddy 40/35/25, JobBench 34, LAB 100."
+    },
+    {
+      "id": "M06",
+      "kind": "method",
+      "claim": "Executor #Steps counts model turns; Figure 6 separately includes execution and improvement token costs before submission.",
+      "evidence": [
+        {
+          "source_id": "paper-v1",
+          "pages": [
+            10,
+            20
+          ],
+          "locator": "Figure 6; Appendix B"
+        }
+      ],
+      "caveat": "Fewer executor steps does not imply lower total pipeline compute or dollars."
+    },
+    {
+      "id": "M07",
+      "kind": "method",
+      "claim": "Reflection examines rejected candidates too and may decline a durable lesson when evidence is insufficient.",
+      "evidence": [
+        {
+          "source_id": "paper-v1",
+          "pages": [
+            7,
+            36,
+            37
+          ],
+          "locator": "Section 2.3; Prompt 6"
+        }
+      ],
+      "caveat": "Single runs and multiple simultaneous edits can leave attribution confounded."
+    },
+    {
+      "id": "I01",
+      "kind": "interpretation",
+      "claim": "The reported results support bounded harness adaptation, not indefinite monotonic self-improvement or universal correctness.",
+      "evidence": [
+        {
+          "source_id": "paper-v1",
+          "pages": [
+            9,
+            10,
+            26,
+            29
+          ],
+          "locator": "Figures 5-6; failure analysis; Appendix F"
+        }
+      ],
+      "caveat": "Guide synthesis; budgets and benchmarks are limited and feedback remains fallible."
+    }
+  ]
+}

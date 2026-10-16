@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+*.pdf
+*.png
+*.jpg
+*.zip
+.env
+source-private/
+private-tools/
+output/
+tmp/

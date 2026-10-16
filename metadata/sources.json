@@ -1,0 +1,61 @@
+{
+  "checked_at": "2026-10-16",
+  "sources": [
+    {
+      "id": "paper-v1",
+      "url": "https://arxiv.org/pdf/2610.14224v1",
+      "role": "Primary method, results, appendices and figures",
+      "status": "retrieved",
+      "notes": "37 pages; official arXiv fallback; SHA-256 in paper.json. Attachment byte equivalence not verified."
+    },
+    {
+      "id": "arxiv-version-history",
+      "url": "https://arxiv.org/abs/2610.14224v1",
+      "role": "Bibliography, version history, license link",
+      "status": "retrieved",
+      "notes": "Only v1 observed; submitted October 9; DOI labeled pending registration. PDF header October 12."
+    },
+    {
+      "id": "authors-code",
+      "url": "https://github.com/google-research/harness2",
+      "role": "Authors' implementation",
+      "status": "verified_public",
+      "notes": "Recorded head 1cfe254e8d25b15f37048c3730134686abe60335; distinct from this guide."
+    },
+    {
+      "id": "authors-site",
+      "url": "https://harness2.github.io/",
+      "role": "Authors' project page",
+      "status": "http_retrieval_succeeded",
+      "notes": "HTML title identifies Harness2; one web tool could not load the site."
+    },
+    {
+      "id": "paper-license",
+      "url": "https://creativecommons.org/licenses/by/4.0/",
+      "role": "Paper license linked by arXiv",
+      "status": "retrieved",
+      "notes": "CC BY 4.0; no paper PDF or figures redistributed."
+    },
+    {
+      "id": "code-license",
+      "url": "https://github.com/google-research/harness2/blob/1cfe254e8d25b15f37048c3730134686abe60335/LICENSE",
+      "role": "Implementation license",
+      "status": "retrieved",
+      "notes": "Apache-2.0; third-party assets retain independent licensing."
+    },
+    {
+      "id": "release-experiments",
+      "url": "https://github.com/google-research/harness2/blob/1cfe254e8d25b15f37048c3730134686abe60335/docs/EXPERIMENTS.md",
+      "role": "Recorded release defaults and experiment instructions",
+      "status": "retrieved",
+      "notes": "Network, sandbox, rubric-access validation observation, task partitions, LAB count, failed-evaluation policy. Does not establish paper-run leakage."
+    },
+    {
+      "id": "release-benchmarks",
+      "url": "https://github.com/google-research/harness2/blob/1cfe254e8d25b15f37048c3730134686abe60335/docs/BENCHMARKS.md",
+      "role": "Recorded release benchmark behavior",
+      "status": "retrieved",
+      "notes": "Unscored failures, data discovery, evaluation adapters; not an exact reproduction guarantee."
+    }
+  ]
+}

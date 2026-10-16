@@ -1,0 +1,39 @@
+cff-version: 1.2.0
+message: "For research claims, cite the paper in preferred-citation. This repository is an independent reading guide."
+title: "Harness² independent reading guide"
+type: software
+authors:
+  - family-names: "0xHayd3n"
+repository-code: "https://github.com/0xHayd3n/harness2-guide"
+url: "https://github.com/0xHayd3n/harness2-guide"
+version: "1.0.0"
+date-released: "2026-10-16"
+license: CC-BY-4.0
+preferred-citation:
+  type: article
+  title: "Harness^2: Recursive Agent Harnessing for an Open World"
+  authors:
+    - family-names: "Xu"
+      given-names: "Ruiyao"
+    - family-names: "Chen"
+      given-names: "Yanfei"
+    - family-names: "CuiZhu"
+      given-names: "Zhongying"
+    - family-names: "Dalvi Mishra"
+      given-names: "Bhavana"
+    - family-names: "Ming"
+      given-names: "Yifei"
+    - family-names: "Yu"
+      given-names: "Han"
+    - family-names: "Han"
+      given-names: "Rujun"
+    - family-names: "Lee"
+      given-names: "Chen-Yu"
+    - family-names: "Pfister"
+      given-names: "Tomas"
+  journal: "arXiv preprint arXiv:2610.14224v1"
+  year: 2026
+  month: 10
+  version: "v1"
+  url: "https://arxiv.org/abs/2610.14224v1"
+  notes: "Submitted October 9, 2026; PDF header dated October 12."

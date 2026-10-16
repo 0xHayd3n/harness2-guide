@@ -1,0 +1,39 @@
+{
+  "title": "Harness^2: Recursive Agent Harnessing for an Open World",
+  "arxiv_id": "2610.14224",
+  "version": "v1",
+  "pages": 37,
+  "authors": [
+    "Ruiyao Xu",
+    "Yanfei Chen",
+    "Zhongying CuiZhu",
+    "Bhavana Dalvi Mishra",
+    "Yifei Ming",
+    "Han Yu",
+    "Rujun Han",
+    "Chen-Yu Lee",
+    "Tomas Pfister"
+  ],
+  "submitted": "2026-10-09",
+  "submitted_at": "2026-10-09T18:34:25Z",
+  "pdf_header_date": "2026-10-12",
+  "pdf_url": "https://arxiv.org/pdf/2610.14224v1",
+  "abstract_url": "https://arxiv.org/abs/2610.14224v1",
+  "doi": "10.48550/arXiv.2610.14224",
+  "doi_registration_status_on_check": "pending per arXiv abstract",
+  "source_sha256": "440be1f694f3b0fdfb8e612e9b2288ff0d8ab38641cfd1064fd77052ba360282",
+  "size_bytes": 8101889,
+  "scope": "independent_reading_guide",
+  "checked_at": "2026-10-16",
+  "version_history_observed": [
+    "v1"
+  ],
+  "source_provenance": "Official version-pinned arXiv PDF fallback after supported Library attachment materialization failed on Windows os.setxattr.",
+  "attachment_byte_equivalence": "not_verified",
+  "paper_license": "CC-BY-4.0",
+  "guide_license": "CC-BY-4.0",
+  "checker_license": "MIT",
+  "upstream_code_license": "Apache-2.0",
+  "upstream_commit": "1cfe254e8d25b15f37048c3730134686abe60335",
+  "experiments_performed": false
+}

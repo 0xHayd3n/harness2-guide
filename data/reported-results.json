@@ -1,0 +1,2396 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "arxiv:2610.14224v1",
+  "source_pdf_url": "https://arxiv.org/pdf/2610.14224v1",
+  "provenance": "Manual transcription from pinned official v1 PDF; Tables 1-4 and selected figures checked against rendered pages. These are the paper's reported results, not independent experimental outputs.",
+  "units": {
+    "workbuddy_score": "0-100 display of fraction of task checks passed; Avg is unweighted macro-average of Code, Web, Office",
+    "jobbench_score": "0-100 display of weighted rubric score divided by maximum",
+    "lab_partial": "percentage of grading criteria passed; the total criterion denominator for the evaluated 100-task subset is not specified in the paper",
+    "steps": "model turns in executor session, not total pipeline token compute",
+    "delta_score": "score points; LAB deltas are percentage points",
+    "sd": "standard deviation over three independent task streams with shuffled order; not standard error or confidence interval"
+  },
+  "protocol": {
+    "executor_models": [
+      "Gemini 3.5 Flash",
+      "GLM-5"
+    ],
+    "initial_harnesses": [
+      "OpenCode",
+      "Codex"
+    ],
+    "default_editor": "Claude Opus 4.8 under OpenCode, high reasoning effort",
+    "runs": 3,
+    "library_initial_state": "empty per benchmark stream; domain-local directories",
+    "k1": "one Propose-Probe-Compose step; selector bypassed",
+    "k5": "parallel recursion; delta rows give changes in means from k=1, no k=5 SD reported",
+    "max_executor_model_turns": 200,
+    "max_executor_seconds": 3600,
+    "source_pdf_pages": [
+      7,
+      18,
+      19,
+      20,
+      21
+    ],
+    "benchmarks": [
+      {
+        "benchmark": "WorkBuddy-Bench",
+        "full_domain_task_counts": {
+          "Code": 80,
+          "Web": 70,
+          "Office": 50
+        },
+        "test_domain_task_counts": {
+          "Code": 40,
+          "Web": 35,
+          "Office": 25
+        },
+        "split": "each domain split in half by category",
+        "judge": "composite deterministic checks plus LLM/VLM items; Gemini 3.5 Flash where needed",
+        "source_pdf_pages": [
+          18,
+          19
+        ]
+      },
+      {
+        "benchmark": "JobBench",
+        "full_task_count": 65,
+        "train_task_count": 31,
+        "test_task_count": 34,
+        "occupational_domains": 7,
+        "judge": "Claude Opus 4.8 weighted rubric",
+        "source_pdf_page": 19
+      },
+      {
+        "benchmark": "LAB",
+        "full_task_count": 1251,
+        "test_task_count": 100,
+        "dev_task_count": 24,
+        "practice_areas": 24,
+        "work_types": [
+          "analyse",
+          "draft",
+          "review",
+          "research"
+        ],
+        "judge": "Claude Sonnet 4.6 per-task criteria",
+        "source_pdf_pages": [
+          19,
+          20
+        ]
+      }
+    ]
+  },
+  "tables": {
+    "table_1": {
+      "pdf_page": 8,
+      "source_label": "Table 1",
+      "columns": [
+        "code_score",
+        "code_steps",
+        "web_score",
+        "web_steps",
+        "office_score",
+        "office_steps",
+        "avg_score",
+        "avg_steps"
+      ],
+      "rows": [
+        {
+          "executor": "Gemini 3.5 Flash",
+          "initial_harness": "OpenCode",
+          "method": "base",
+          "kind": "mean_sd",
+          "values": {
+            "code_score": {
+              "mean": 73.4,
+              "sd": 3.6
+            },
+            "code_steps": {
+              "mean": 29.6,
+              "sd": 1
+            },
+            "web_score": {
+              "mean": 69.9,
+              "sd": 4.2
+            },
+            "web_steps": {
+              "mean": 19.2,
+              "sd": 0.8
+            },
+            "office_score": {
+              "mean": 74,
+              "sd": 2.2
+            },
+            "office_steps": {
+              "mean": 27.3,
+              "sd": 3.3
+            },
+            "avg_score": {
+              "mean": 72.4,
+              "sd": 0.9
+            },
+            "avg_steps": {
+              "mean": 25.4,
+              "sd": 0.4
+            }
+          }
+        },
+        {
+          "executor": "Gemini 3.5 Flash",
+          "initial_harness": "OpenCode",
+          "method": "reasoningbank",
+          "kind": "mean_sd",
+          "values": {
+            "code_score": {
+              "mean": 72.6,
+              "sd": 3.1
+            },
+            "code_steps": {
+              "mean": 28.7,
+              "sd": 2.6
+            },
+            "web_score": {
+              "mean": 70.7,
+              "sd": 6.9
+            },
+            "web_steps": {
+              "mean": 18.8,
+              "sd": 0.7
+            },
+            "office_score": {
+              "mean": 76.8,
+              "sd": 2.1
+            },
+            "office_steps": {
+              "mean": 27.1,
+              "sd": 1.2
+            },
+            "avg_score": {
+              "mean": 73.4,
+              "sd": 2.5
+            },
+            "avg_steps": {
+              "mean": 24.9,
+              "sd": 1
+            }
+          }
+        },
+        {
+          "executor": "Gemini 3.5 Flash",
+          "initial_harness": "OpenCode",
+          "method": "meta_harness",
+          "kind": "mean_sd",
+          "values": {
+            "code_score": {
+              "mean": 75.5,
+              "sd": 1.7
+            },
+            "code_steps": {
+              "mean": 31.5,
+              "sd": 0.8
+            },
+            "web_score": {
+              "mean": 75.1,
+              "sd": 0.6
+            },
+            "web_steps": {
+              "mean": 26.4,
+              "sd": 1.1
+            },
+            "office_score": {
+              "mean": 78.6,
+              "sd": 1.4
+            },
+            "office_steps": {
+              "mean": 28.6,
+              "sd": 2.4
+            },
+            "avg_score": {
+              "mean": 76.4,
+              "sd": 0.7
+            },
+            "avg_steps": {
+              "mean": 28.8,
+              "sd": 0.8
+            }
+          }
+        },
+        {
+          "executor": "Gemini 3.5 Flash",
+          "initial_harness": "OpenCode",
+          "method": "harness_scaling",
+          "kind": "mean_sd",
+          "values": {
+            "code_score": {
+              "mean": 74,
+              "sd": 1.1
+            },
+            "code_steps": {
+              "mean": 26.1,
+              "sd": 0.9
+            },
+            "web_score": {
+              "mean": 74,
+              "sd": 1.9
+            },
+            "web_steps": {
+              "mean": 16.6,
+              "sd": 1.5
+            },
+            "office_score": {
+              "mean": 77.9,
+              "sd": 1.3
+            },
+            "office_steps": {
+              "mean": 24.3,
+              "sd": 1.4
+            },
+            "avg_score": {
+              "mean": 75.3,
+              "sd": 0.7
+            },
+            "avg_steps": {
+              "mean": 22.3,
+              "sd": 0.4
+            }
+          }
+        },
+        {
+          "executor": "Gemini 3.5 Flash",
+          "initial_harness": "OpenCode",
+          "method": "harness2",
+          "kind": "mean_sd",
+          "k": 1,
+          "values": {
+            "code_score": {
+              "mean": 76.5,
+              "sd": 1.3
+            },
+            "code_steps": {
+              "mean": 22.8,
+              "sd": 1.3
+            },
+            "web_score": {
+              "mean": 76.4,
+              "sd": 4.5
+            },
+            "web_steps": {
+              "mean": 17.7,
+              "sd": 0.7
+            },
+            "office_score": {
+              "mean": 79.5,
+              "sd": 3.1
+            },
+            "office_steps": {
+              "mean": 25.1,
+              "sd": 1.7
+            },
+            "avg_score": {
+              "mean": 77.5,
+              "sd": 2.5
+            },
+            "avg_steps": {
+              "mean": 21.9,
+              "sd": 0.4
+            }
+          }
+        },
+        {
+          "executor": "Gemini 3.5 Flash",
+          "initial_harness": "OpenCode",
+          "method": "parallel_recursion_delta",
+          "kind": "delta_from_harness2_k1",
+          "k": 5,
+          "recursion": "parallel",
+          "values": {
+            "code_score": {
+              "delta": 4.3
+            },
+            "code_steps": {
+              "delta": -0.4
+            },
+            "web_score": {
+              "delta": 1.9
+            },
+            "web_steps": {
+              "delta": 0.4
+            },
+            "office_score": {
+              "delta": 3.9
+            },
+            "office_steps": {
+              "delta": -2.2
+            },
+            "avg_score": {
+              "delta": 3.3
+            },
+            "avg_steps": {
+              "delta": -0.8
+            }
+          }
+        },
+        {
+          "executor": "Gemini 3.5 Flash",
+          "initial_harness": "Codex",
+          "method": "base",
+          "kind": "mean_sd",
+          "values": {
+            "code_score": {
+              "mean": 74,
+              "sd": 1.7
+            },
+            "code_steps": {
+              "mean": 31.8,
+              "sd": 0.9
+            },
+            "web_score": {
+              "mean": 72.5,
+              "sd": 1.2
+            },
+            "web_steps": {
+              "mean": 22.6,
+              "sd": 0.9
+            },
+            "office_score": {
+              "mean": 77,
+              "sd": 2.2
+            },
+            "office_steps": {
+              "mean": 30.6,
+              "sd": 1.2
+            },
+            "avg_score": {
+              "mean": 74.5,
+              "sd": 1.6
+            },
+            "avg_steps": {
+              "mean": 28.3,
+              "sd": 0.7
+            }
+          }
+        },
+        {
+          "executor": "Gemini 3.5 Flash",
+          "initial_harness": "Codex",
+          "method": "reasoningbank",
+          "kind": "mean_sd",
+          "values": {
+            "code_score": {
+              "mean": 73.5,
+              "sd": 3.3
+            },
+            "code_steps": {
+              "mean": 32.8,
+              "sd": 1.7
+            },
+            "web_score": {
+              "mean": 65.7,
+              "sd": 2.2
+            },
+            "web_steps": {
+              "mean": 22.7,
+              "sd": 2.2
+            },
+            "office_score": {
+              "mean": 78.4,
+              "sd": 0.9
+            },
+            "office_steps": {
+              "mean": 32.1,
+              "sd": 2.3
+            },
+            "avg_score": {
+              "mean": 72.5,
+              "sd": 2.2
+            },
+            "avg_steps": {
+              "mean": 29.2,
+              "sd": 1.1
+            }
+          }
+        },
+        {
+          "executor": "Gemini 3.5 Flash",
+          "initial_harness": "Codex",
+          "method": "meta_harness",
+          "kind": "mean_sd",
+          "values": {
+            "code_score": {
+              "mean": 74.6,
+              "sd": 3.3
+            },
+            "code_steps": {
+              "mean": 33.5,
+              "sd": 1.1
+            },
+            "web_score": {
+              "mean": 67.8,
+              "sd": 1.5
+            },
+            "web_steps": {
+              "mean": 22.1,
+              "sd": 2.8
+            },
+            "office_score": {
+              "mean": 77.6,
+              "sd": 1.6
+            },
+            "office_steps": {
+              "mean": 30.1,
+              "sd": 1.9
+            },
+            "avg_score": {
+              "mean": 73.3,
+              "sd": 0.8
+            },
+            "avg_steps": {
+              "mean": 28.6,
+              "sd": 1.2
+            }
+          }
+        },
+        {
+          "executor": "Gemini 3.5 Flash",
+          "initial_harness": "Codex",
+          "method": "harness_scaling",
+          "kind": "mean_sd",
+          "values": {
+            "code_score": {
+              "mean": 75.5,
+              "sd": 2.1
+            },
+            "code_steps": {
+              "mean": 32.4,
+              "sd": 0.6
+            },
+            "web_score": {
+              "mean": 69.3,
+              "sd": 3.8
+            },
+            "web_steps": {
+              "mean": 23.5,
+              "sd": 0.9
+            },
+            "office_score": {
+              "mean": 76.7,
+              "sd": 3.8
+            },
+            "office_steps": {
+              "mean": 34,
+              "sd": 2.6
+            },
+            "avg_score": {
+              "mean": 73.8,
+              "sd": 1.7
+            },
+            "avg_steps": {
+              "mean": 30,
+              "sd": 1
+            }
+          }
+        },
+        {
+          "executor": "Gemini 3.5 Flash",
+          "initial_harness": "Codex",
+          "method": "harness2",
+          "kind": "mean_sd",
+          "k": 1,
+          "values": {
+            "code_score": {
+              "mean": 79.4,
+              "sd": 3.6
+            },
+            "code_steps": {
+              "mean": 26.6,
+              "sd": 2.8
+            },
+            "web_score": {
+              "mean": 74.7,
+              "sd": 3.8
+            },
+            "web_steps": {
+              "mean": 19.5,
+              "sd": 1.1
+            },
+            "office_score": {
+              "mean": 78.5,
+              "sd": 2.4
+            },
+            "office_steps": {
+              "mean": 25.6,
+              "sd": 1.3
+            },
+            "avg_score": {
+              "mean": 77.5,
+              "sd": 2
+            },
+            "avg_steps": {
+              "mean": 23.9,
+              "sd": 0.6
+            }
+          }
+        },
+        {
+          "executor": "Gemini 3.5 Flash",
+          "initial_harness": "Codex",
+          "method": "parallel_recursion_delta",
+          "kind": "delta_from_harness2_k1",
+          "k": 5,
+          "recursion": "parallel",
+          "values": {
+            "code_score": {
+              "delta": 1.6
+            },
+            "code_steps": {
+              "delta": -2
+            },
+            "web_score": {
+              "delta": 2.6
+            },
+            "web_steps": {
+              "delta": 0
+            },
+            "office_score": {
+              "delta": 4.3
+            },
+            "office_steps": {
+              "delta": 1.3
+            },
+            "avg_score": {
+              "delta": 2.9
+            },
+            "avg_steps": {
+              "delta": -0.2
+            }
+          }
+        },
+        {
+          "executor": "GLM-5",
+          "initial_harness": "OpenCode",
+          "method": "base",
+          "kind": "mean_sd",
+          "values": {
+            "code_score": {
+              "mean": 58.4,
+              "sd": 5.2
+            },
+            "code_steps": {
+              "mean": 19.2,
+              "sd": 1.8
+            },
+            "web_score": {
+              "mean": 59.2,
+              "sd": 6.9
+            },
+            "web_steps": {
+              "mean": 9.2,
+              "sd": 1.2
+            },
+            "office_score": {
+              "mean": 75.1,
+              "sd": 3.2
+            },
+            "office_steps": {
+              "mean": 12,
+              "sd": 1.1
+            },
+            "avg_score": {
+              "mean": 64.2,
+              "sd": 1.4
+            },
+            "avg_steps": {
+              "mean": 13.5,
+              "sd": 0.5
+            }
+          }
+        },
+        {
+          "executor": "GLM-5",
+          "initial_harness": "OpenCode",
+          "method": "reasoningbank",
+          "kind": "mean_sd",
+          "values": {
+            "code_score": {
+              "mean": 63.3,
+              "sd": 4.3
+            },
+            "code_steps": {
+              "mean": 18.6,
+              "sd": 0.6
+            },
+            "web_score": {
+              "mean": 61.4,
+              "sd": 4.2
+            },
+            "web_steps": {
+              "mean": 10.3,
+              "sd": 2.5
+            },
+            "office_score": {
+              "mean": 72,
+              "sd": 0.9
+            },
+            "office_steps": {
+              "mean": 14.3,
+              "sd": 0.4
+            },
+            "avg_score": {
+              "mean": 65.6,
+              "sd": 1.2
+            },
+            "avg_steps": {
+              "mean": 14.4,
+              "sd": 0.7
+            }
+          }
+        },
+        {
+          "executor": "GLM-5",
+          "initial_harness": "OpenCode",
+          "method": "meta_harness",
+          "kind": "mean_sd",
+          "values": {
+            "code_score": {
+              "mean": 69,
+              "sd": 1.2
+            },
+            "code_steps": {
+              "mean": 22.4,
+              "sd": 1.6
+            },
+            "web_score": {
+              "mean": 61.9,
+              "sd": 4.1
+            },
+            "web_steps": {
+              "mean": 10,
+              "sd": 1.9
+            },
+            "office_score": {
+              "mean": 78.1,
+              "sd": 1.3
+            },
+            "office_steps": {
+              "mean": 13.6,
+              "sd": 1.7
+            },
+            "avg_score": {
+              "mean": 69.7,
+              "sd": 0.6
+            },
+            "avg_steps": {
+              "mean": 15.3,
+              "sd": 1.5
+            }
+          }
+        },
+        {
+          "executor": "GLM-5",
+          "initial_harness": "OpenCode",
+          "method": "harness_scaling",
+          "kind": "mean_sd",
+          "values": {
+            "code_score": {
+              "mean": 60.3,
+              "sd": 2.6
+            },
+            "code_steps": {
+              "mean": 16,
+              "sd": 2.6
+            },
+            "web_score": {
+              "mean": 63.4,
+              "sd": 2.2
+            },
+            "web_steps": {
+              "mean": 9,
+              "sd": 1.2
+            },
+            "office_score": {
+              "mean": 79.8,
+              "sd": 3
+            },
+            "office_steps": {
+              "mean": 12.8,
+              "sd": 1.1
+            },
+            "avg_score": {
+              "mean": 67.8,
+              "sd": 1.3
+            },
+            "avg_steps": {
+              "mean": 12.6,
+              "sd": 1.1
+            }
+          }
+        },
+        {
+          "executor": "GLM-5",
+          "initial_harness": "OpenCode",
+          "method": "harness2",
+          "kind": "mean_sd",
+          "k": 1,
+          "values": {
+            "code_score": {
+              "mean": 77.1,
+              "sd": 2.7
+            },
+            "code_steps": {
+              "mean": 14.8,
+              "sd": 2.1
+            },
+            "web_score": {
+              "mean": 69.1,
+              "sd": 3.3
+            },
+            "web_steps": {
+              "mean": 11,
+              "sd": 2
+            },
+            "office_score": {
+              "mean": 80.8,
+              "sd": 2.6
+            },
+            "office_steps": {
+              "mean": 15.2,
+              "sd": 1.8
+            },
+            "avg_score": {
+              "mean": 75.7,
+              "sd": 2.2
+            },
+            "avg_steps": {
+              "mean": 13.7,
+              "sd": 0.2
+            }
+          }
+        },
+        {
+          "executor": "GLM-5",
+          "initial_harness": "OpenCode",
+          "method": "parallel_recursion_delta",
+          "kind": "delta_from_harness2_k1",
+          "k": 5,
+          "recursion": "parallel",
+          "values": {
+            "code_score": {
+              "delta": 4.8
+            },
+            "code_steps": {
+              "delta": -5.5
+            },
+            "web_score": {
+              "delta": 5.3
+            },
+            "web_steps": {
+              "delta": -0.2
+            },
+            "office_score": {
+              "delta": 1.7
+            },
+            "office_steps": {
+              "delta": -2.3
+            },
+            "avg_score": {
+              "delta": 3.9
+            },
+            "avg_steps": {
+              "delta": -2.7
+            }
+          }
+        },
+        {
+          "executor": "GLM-5",
+          "initial_harness": "Codex",
+          "method": "base",
+          "kind": "mean_sd",
+          "values": {
+            "code_score": {
+              "mean": 56.8,
+              "sd": 2.7
+            },
+            "code_steps": {
+              "mean": 28.5,
+              "sd": 1.8
+            },
+            "web_score": {
+              "mean": 59.6,
+              "sd": 1
+            },
+            "web_steps": {
+              "mean": 18,
+              "sd": 0.9
+            },
+            "office_score": {
+              "mean": 76.9,
+              "sd": 2.4
+            },
+            "office_steps": {
+              "mean": 23.4,
+              "sd": 1.4
+            },
+            "avg_score": {
+              "mean": 64.4,
+              "sd": 1.2
+            },
+            "avg_steps": {
+              "mean": 23.3,
+              "sd": 0.3
+            }
+          }
+        },
+        {
+          "executor": "GLM-5",
+          "initial_harness": "Codex",
+          "method": "reasoningbank",
+          "kind": "mean_sd",
+          "values": {
+            "code_score": {
+              "mean": 50.2,
+              "sd": 3.8
+            },
+            "code_steps": {
+              "mean": 24.9,
+              "sd": 0.6
+            },
+            "web_score": {
+              "mean": 66.3,
+              "sd": 2.5
+            },
+            "web_steps": {
+              "mean": 17.5,
+              "sd": 1.6
+            },
+            "office_score": {
+              "mean": 75.8,
+              "sd": 4.2
+            },
+            "office_steps": {
+              "mean": 20.9,
+              "sd": 0.5
+            },
+            "avg_score": {
+              "mean": 64.1,
+              "sd": 0.9
+            },
+            "avg_steps": {
+              "mean": 21.1,
+              "sd": 0.7
+            }
+          }
+        },
+        {
+          "executor": "GLM-5",
+          "initial_harness": "Codex",
+          "method": "meta_harness",
+          "kind": "mean_sd",
+          "values": {
+            "code_score": {
+              "mean": 76.8,
+              "sd": 1.9
+            },
+            "code_steps": {
+              "mean": 33,
+              "sd": 2.1
+            },
+            "web_score": {
+              "mean": 67.8,
+              "sd": 4.1
+            },
+            "web_steps": {
+              "mean": 24.7,
+              "sd": 0.5
+            },
+            "office_score": {
+              "mean": 77.9,
+              "sd": 2.8
+            },
+            "office_steps": {
+              "mean": 31.4,
+              "sd": 2.8
+            },
+            "avg_score": {
+              "mean": 74.2,
+              "sd": 1.6
+            },
+            "avg_steps": {
+              "mean": 29.7,
+              "sd": 1.2
+            }
+          }
+        },
+        {
+          "executor": "GLM-5",
+          "initial_harness": "Codex",
+          "method": "harness_scaling",
+          "kind": "mean_sd",
+          "values": {
+            "code_score": {
+              "mean": 49.5,
+              "sd": 3.9
+            },
+            "code_steps": {
+              "mean": 24.2,
+              "sd": 1
+            },
+            "web_score": {
+              "mean": 60.9,
+              "sd": 1.7
+            },
+            "web_steps": {
+              "mean": 18.9,
+              "sd": 1.4
+            },
+            "office_score": {
+              "mean": 78.2,
+              "sd": 2.4
+            },
+            "office_steps": {
+              "mean": 22,
+              "sd": 2.8
+            },
+            "avg_score": {
+              "mean": 62.9,
+              "sd": 1.3
+            },
+            "avg_steps": {
+              "mean": 21.7,
+              "sd": 1.2
+            }
+          }
+        },
+        {
+          "executor": "GLM-5",
+          "initial_harness": "Codex",
+          "method": "harness2",
+          "kind": "mean_sd",
+          "k": 1,
+          "values": {
+            "code_score": {
+              "mean": 74.9,
+              "sd": 1.5
+            },
+            "code_steps": {
+              "mean": 19.7,
+              "sd": 1.3
+            },
+            "web_score": {
+              "mean": 70,
+              "sd": 4.3
+            },
+            "web_steps": {
+              "mean": 22.4,
+              "sd": 2.2
+            },
+            "office_score": {
+              "mean": 81.1,
+              "sd": 2
+            },
+            "office_steps": {
+              "mean": 21.8,
+              "sd": 1.5
+            },
+            "avg_score": {
+              "mean": 75.3,
+              "sd": 1.3
+            },
+            "avg_steps": {
+              "mean": 21.3,
+              "sd": 1.3
+            }
+          }
+        },
+        {
+          "executor": "GLM-5",
+          "initial_harness": "Codex",
+          "method": "parallel_recursion_delta",
+          "kind": "delta_from_harness2_k1",
+          "k": 5,
+          "recursion": "parallel",
+          "values": {
+            "code_score": {
+              "delta": 2.3
+            },
+            "code_steps": {
+              "delta": -1.4
+            },
+            "web_score": {
+              "delta": 3.3
+            },
+            "web_steps": {
+              "delta": -2.5
+            },
+            "office_score": {
+              "delta": 3.2
+            },
+            "office_steps": {
+              "delta": 0.1
+            },
+            "avg_score": {
+              "delta": 3
+            },
+            "avg_steps": {
+              "delta": -1.3
+            }
+          }
+        }
+      ]
+    },
+    "table_2": {
+      "pdf_page": 9,
+      "source_label": "Table 2",
+      "columns": [
+        "jobbench_score",
+        "jobbench_steps",
+        "lab_partial",
+        "lab_steps"
+      ],
+      "rows": [
+        {
+          "executor": "Gemini 3.5 Flash",
+          "initial_harness": "OpenCode",
+          "method": "base",
+          "kind": "mean_sd",
+          "values": {
+            "jobbench_score": {
+              "mean": 31.5,
+              "sd": 1.1
+            },
+            "jobbench_steps": {
+              "mean": 63.6,
+              "sd": 4.3
+            },
+            "lab_partial": {
+              "mean": 79.9,
+              "sd": 0.6
+            },
+            "lab_steps": {
+              "mean": 29,
+              "sd": 0.8
+            }
+          }
+        },
+        {
+          "executor": "Gemini 3.5 Flash",
+          "initial_harness": "OpenCode",
+          "method": "reasoningbank",
+          "kind": "mean_sd",
+          "values": {
+            "jobbench_score": {
+              "mean": 30.8,
+              "sd": 2.3
+            },
+            "jobbench_steps": {
+              "mean": 65.7,
+              "sd": 2.5
+            },
+            "lab_partial": {
+              "mean": 77.3,
+              "sd": 3.1
+            },
+            "lab_steps": {
+              "mean": 31.3,
+              "sd": 1.1
+            }
+          }
+        },
+        {
+          "executor": "Gemini 3.5 Flash",
+          "initial_harness": "OpenCode",
+          "method": "meta_harness",
+          "kind": "mean_sd",
+          "values": {
+            "jobbench_score": {
+              "mean": 35.8,
+              "sd": 1
+            },
+            "jobbench_steps": {
+              "mean": 71.8,
+              "sd": 3.7
+            },
+            "lab_partial": {
+              "mean": 81.6,
+              "sd": 3.9
+            },
+            "lab_steps": {
+              "mean": 31.1,
+              "sd": 2
+            }
+          }
+        },
+        {
+          "executor": "Gemini 3.5 Flash",
+          "initial_harness": "OpenCode",
+          "method": "harness_scaling",
+          "kind": "mean_sd",
+          "values": {
+            "jobbench_score": {
+              "mean": 32.9,
+              "sd": 3.1
+            },
+            "jobbench_steps": {
+              "mean": 64.5,
+              "sd": 1.2
+            },
+            "lab_partial": {
+              "mean": 78.9,
+              "sd": 4.3
+            },
+            "lab_steps": {
+              "mean": 31.4,
+              "sd": 1.1
+            }
+          }
+        },
+        {
+          "executor": "Gemini 3.5 Flash",
+          "initial_harness": "OpenCode",
+          "method": "harness2",
+          "kind": "mean_sd",
+          "k": 1,
+          "values": {
+            "jobbench_score": {
+              "mean": 36,
+              "sd": 2.3
+            },
+            "jobbench_steps": {
+              "mean": 69.3,
+              "sd": 3.5
+            },
+            "lab_partial": {
+              "mean": 81.9,
+              "sd": 0.6
+            },
+            "lab_steps": {
+              "mean": 33,
+              "sd": 1.1
+            }
+          }
+        },
+        {
+          "executor": "Gemini 3.5 Flash",
+          "initial_harness": "OpenCode",
+          "method": "parallel_recursion_delta",
+          "kind": "delta_from_harness2_k1",
+          "k": 5,
+          "recursion": "parallel",
+          "values": {
+            "jobbench_score": {
+              "delta": 3
+            },
+            "jobbench_steps": {
+              "delta": -3.9
+            },
+            "lab_partial": {
+              "delta": 2.6
+            },
+            "lab_steps": {
+              "delta": -1.7
+            }
+          }
+        },
+        {
+          "executor": "Gemini 3.5 Flash",
+          "initial_harness": "Codex",
+          "method": "base",
+          "kind": "mean_sd",
+          "values": {
+            "jobbench_score": {
+              "mean": 33.9,
+              "sd": 2.6
+            },
+            "jobbench_steps": {
+              "mean": 53.6,
+              "sd": 3.3
+            },
+            "lab_partial": {
+              "mean": 71.6,
+              "sd": 1.3
+            },
+            "lab_steps": {
+              "mean": 49.8,
+              "sd": 0.9
+            }
+          }
+        },
+        {
+          "executor": "Gemini 3.5 Flash",
+          "initial_harness": "Codex",
+          "method": "reasoningbank",
+          "kind": "mean_sd",
+          "values": {
+            "jobbench_score": {
+              "mean": 30.2,
+              "sd": 2.7
+            },
+            "jobbench_steps": {
+              "mean": 54.1,
+              "sd": 4
+            },
+            "lab_partial": {
+              "mean": 74.8,
+              "sd": 0.9
+            },
+            "lab_steps": {
+              "mean": 52.7,
+              "sd": 2.8
+            }
+          }
+        },
+        {
+          "executor": "Gemini 3.5 Flash",
+          "initial_harness": "Codex",
+          "method": "meta_harness",
+          "kind": "mean_sd",
+          "values": {
+            "jobbench_score": {
+              "mean": 34.8,
+              "sd": 1.6
+            },
+            "jobbench_steps": {
+              "mean": 57.4,
+              "sd": 2.1
+            },
+            "lab_partial": {
+              "mean": 76.5,
+              "sd": 2.1
+            },
+            "lab_steps": {
+              "mean": 56.7,
+              "sd": 2.6
+            }
+          }
+        },
+        {
+          "executor": "Gemini 3.5 Flash",
+          "initial_harness": "Codex",
+          "method": "harness_scaling",
+          "kind": "mean_sd",
+          "values": {
+            "jobbench_score": {
+              "mean": 33.6,
+              "sd": 0.6
+            },
+            "jobbench_steps": {
+              "mean": 50.8,
+              "sd": 2.1
+            },
+            "lab_partial": {
+              "mean": 67.9,
+              "sd": 2.4
+            },
+            "lab_steps": {
+              "mean": 53.1,
+              "sd": 2
+            }
+          }
+        },
+        {
+          "executor": "Gemini 3.5 Flash",
+          "initial_harness": "Codex",
+          "method": "harness2",
+          "kind": "mean_sd",
+          "k": 1,
+          "values": {
+            "jobbench_score": {
+              "mean": 35.3,
+              "sd": 3.5
+            },
+            "jobbench_steps": {
+              "mean": 54.5,
+              "sd": 1.9
+            },
+            "lab_partial": {
+              "mean": 75.6,
+              "sd": 4.5
+            },
+            "lab_steps": {
+              "mean": 44.2,
+              "sd": 1.3
+            }
+          }
+        },
+        {
+          "executor": "Gemini 3.5 Flash",
+          "initial_harness": "Codex",
+          "method": "parallel_recursion_delta",
+          "kind": "delta_from_harness2_k1",
+          "k": 5,
+          "recursion": "parallel",
+          "values": {
+            "jobbench_score": {
+              "delta": 4.2
+            },
+            "jobbench_steps": {
+              "delta": 1.2
+            },
+            "lab_partial": {
+              "delta": 2.9
+            },
+            "lab_steps": {
+              "delta": 4.8
+            }
+          }
+        },
+        {
+          "executor": "GLM-5",
+          "initial_harness": "OpenCode",
+          "method": "base",
+          "kind": "mean_sd",
+          "values": {
+            "jobbench_score": {
+              "mean": 20.6,
+              "sd": 2
+            },
+            "jobbench_steps": {
+              "mean": 20,
+              "sd": 0.8
+            },
+            "lab_partial": {
+              "mean": 59.6,
+              "sd": 2.7
+            },
+            "lab_steps": {
+              "mean": 13.6,
+              "sd": 0.3
+            }
+          }
+        },
+        {
+          "executor": "GLM-5",
+          "initial_harness": "OpenCode",
+          "method": "reasoningbank",
+          "kind": "mean_sd",
+          "values": {
+            "jobbench_score": {
+              "mean": 20.7,
+              "sd": 1.2
+            },
+            "jobbench_steps": {
+              "mean": 21.4,
+              "sd": 1.6
+            },
+            "lab_partial": {
+              "mean": 71.3,
+              "sd": 1.3
+            },
+            "lab_steps": {
+              "mean": 15.3,
+              "sd": 2.5
+            }
+          }
+        },
+        {
+          "executor": "GLM-5",
+          "initial_harness": "OpenCode",
+          "method": "meta_harness",
+          "kind": "mean_sd",
+          "values": {
+            "jobbench_score": {
+              "mean": 20.9,
+              "sd": 2.3
+            },
+            "jobbench_steps": {
+              "mean": 20.1,
+              "sd": 0.9
+            },
+            "lab_partial": {
+              "mean": 60,
+              "sd": 1.1
+            },
+            "lab_steps": {
+              "mean": 14,
+              "sd": 0.7
+            }
+          }
+        },
+        {
+          "executor": "GLM-5",
+          "initial_harness": "OpenCode",
+          "method": "harness_scaling",
+          "kind": "mean_sd",
+          "values": {
+            "jobbench_score": {
+              "mean": 19.3,
+              "sd": 2.2
+            },
+            "jobbench_steps": {
+              "mean": 22.2,
+              "sd": 1.3
+            },
+            "lab_partial": {
+              "mean": 67.8,
+              "sd": 2.8
+            },
+            "lab_steps": {
+              "mean": 17.6,
+              "sd": 2.8
+            }
+          }
+        },
+        {
+          "executor": "GLM-5",
+          "initial_harness": "OpenCode",
+          "method": "harness2",
+          "kind": "mean_sd",
+          "k": 1,
+          "values": {
+            "jobbench_score": {
+              "mean": 24.2,
+              "sd": 0.9
+            },
+            "jobbench_steps": {
+              "mean": 23.6,
+              "sd": 1.4
+            },
+            "lab_partial": {
+              "mean": 71.4,
+              "sd": 2.9
+            },
+            "lab_steps": {
+              "mean": 15.8,
+              "sd": 2.1
+            }
+          }
+        },
+        {
+          "executor": "GLM-5",
+          "initial_harness": "OpenCode",
+          "method": "parallel_recursion_delta",
+          "kind": "delta_from_harness2_k1",
+          "k": 5,
+          "recursion": "parallel",
+          "values": {
+            "jobbench_score": {
+              "delta": 4.2
+            },
+            "jobbench_steps": {
+              "delta": -0.5
+            },
+            "lab_partial": {
+              "delta": 6.7
+            },
+            "lab_steps": {
+              "delta": 3
+            }
+          }
+        },
+        {
+          "executor": "GLM-5",
+          "initial_harness": "Codex",
+          "method": "base",
+          "kind": "mean_sd",
+          "values": {
+            "jobbench_score": {
+              "mean": 23.6,
+              "sd": 2.3
+            },
+            "jobbench_steps": {
+              "mean": 22.3,
+              "sd": 2.1
+            },
+            "lab_partial": {
+              "mean": 58.1,
+              "sd": 2.3
+            },
+            "lab_steps": {
+              "mean": 16.5,
+              "sd": 0.7
+            }
+          }
+        },
+        {
+          "executor": "GLM-5",
+          "initial_harness": "Codex",
+          "method": "reasoningbank",
+          "kind": "mean_sd",
+          "values": {
+            "jobbench_score": {
+              "mean": 22.8,
+              "sd": 3.9
+            },
+            "jobbench_steps": {
+              "mean": 25.3,
+              "sd": 3.5
+            },
+            "lab_partial": {
+              "mean": 63.8,
+              "sd": 3.3
+            },
+            "lab_steps": {
+              "mean": 16.9,
+              "sd": 1.5
+            }
+          }
+        },
+        {
+          "executor": "GLM-5",
+          "initial_harness": "Codex",
+          "method": "meta_harness",
+          "kind": "mean_sd",
+          "values": {
+            "jobbench_score": {
+              "mean": 23.9,
+              "sd": 1.4
+            },
+            "jobbench_steps": {
+              "mean": 22.3,
+              "sd": 0.7
+            },
+            "lab_partial": {
+              "mean": 59,
+              "sd": 1.4
+            },
+            "lab_steps": {
+              "mean": 22,
+              "sd": 1.2
+            }
+          }
+        },
+        {
+          "executor": "GLM-5",
+          "initial_harness": "Codex",
+          "method": "harness_scaling",
+          "kind": "mean_sd",
+          "values": {
+            "jobbench_score": {
+              "mean": 17.5,
+              "sd": 3.3
+            },
+            "jobbench_steps": {
+              "mean": 22.8,
+              "sd": 3.2
+            },
+            "lab_partial": {
+              "mean": 63.7,
+              "sd": 2.8
+            },
+            "lab_steps": {
+              "mean": 24.3,
+              "sd": 1.3
+            }
+          }
+        },
+        {
+          "executor": "GLM-5",
+          "initial_harness": "Codex",
+          "method": "harness2",
+          "kind": "mean_sd",
+          "k": 1,
+          "values": {
+            "jobbench_score": {
+              "mean": 24.8,
+              "sd": 0.2
+            },
+            "jobbench_steps": {
+              "mean": 25.3,
+              "sd": 1.4
+            },
+            "lab_partial": {
+              "mean": 65.9,
+              "sd": 2.7
+            },
+            "lab_steps": {
+              "mean": 22.3,
+              "sd": 2.5
+            }
+          }
+        },
+        {
+          "executor": "GLM-5",
+          "initial_harness": "Codex",
+          "method": "parallel_recursion_delta",
+          "kind": "delta_from_harness2_k1",
+          "k": 5,
+          "recursion": "parallel",
+          "values": {
+            "jobbench_score": {
+              "delta": 3.1
+            },
+            "jobbench_steps": {
+              "delta": 1.7
+            },
+            "lab_partial": {
+              "delta": 4.8
+            },
+            "lab_steps": {
+              "delta": 4.4
+            }
+          }
+        }
+      ]
+    },
+    "table_3": {
+      "pdf_page": 10,
+      "source_label": "Table 3",
+      "executor": "Gemini 3.5 Flash",
+      "initial_harness": "OpenCode",
+      "k": 1,
+      "rows": [
+        {
+          "method": "harness2",
+          "scores": {
+            "WorkBuddy-Bench": 77.5,
+            "JobBench": 36
+          }
+        },
+        {
+          "method": "without_library",
+          "scores": {
+            "WorkBuddy-Bench": 74.4,
+            "JobBench": 34.2
+          }
+        },
+        {
+          "method": "without_scoping",
+          "scores": {
+            "WorkBuddy-Bench": 74.6,
+            "JobBench": 32.3
+          }
+        },
+        {
+          "method": "without_composition",
+          "scores": {
+            "WorkBuddy-Bench": 75.9,
+            "JobBench": 34.1
+          }
+        }
+      ]
+    },
+    "table_4": {
+      "pdf_page": 19,
+      "source_label": "Table 4",
+      "kind": "authors_qualitative_taxonomy_not_performance_results",
+      "definitions_pdf_pages": [
+        17,
+        18
+      ],
+      "rows": [
+        {
+          "method": "DSPy",
+          "object": "Prompts",
+          "stage": "Offline",
+          "label": true,
+          "streaming": false,
+          "scaling": false,
+          "improver_update": false
+        },
+        {
+          "method": "GEPA",
+          "object": "Prompts",
+          "stage": "Offline",
+          "label": true,
+          "streaming": false,
+          "scaling": false,
+          "improver_update": false
+        },
+        {
+          "method": "ADAS",
+          "object": "Agent Design",
+          "stage": "Offline",
+          "label": true,
+          "streaming": false,
+          "scaling": false,
+          "improver_update": true
+        },
+        {
+          "method": "AFlow",
+          "object": "Agent Workflow",
+          "stage": "Offline",
+          "label": true,
+          "streaming": false,
+          "scaling": false,
+          "improver_update": true
+        },
+        {
+          "method": "Meta-Harness",
+          "object": "Harness",
+          "stage": "Offline",
+          "label": true,
+          "streaming": false,
+          "scaling": false,
+          "improver_update": true
+        },
+        {
+          "method": "AI4AI",
+          "object": "Harness",
+          "stage": "Offline",
+          "label": true,
+          "streaming": false,
+          "scaling": false,
+          "improver_update": true
+        },
+        {
+          "method": "AHE",
+          "object": "Harness",
+          "stage": "Offline",
+          "label": true,
+          "streaming": false,
+          "scaling": false,
+          "improver_update": true
+        },
+        {
+          "method": "DarwinX",
+          "object": "Harness",
+          "stage": "Offline",
+          "label": true,
+          "streaming": false,
+          "scaling": false,
+          "improver_update": true
+        },
+        {
+          "method": "EvolveNet",
+          "object": "Harness",
+          "stage": "Offline",
+          "label": true,
+          "streaming": false,
+          "scaling": false,
+          "improver_update": false
+        },
+        {
+          "method": "HELIX",
+          "object": "Harness",
+          "stage": "Offline",
+          "label": true,
+          "streaming": false,
+          "scaling": false,
+          "improver_update": false
+        },
+        {
+          "method": "HarnessX",
+          "object": "Harness + Weights",
+          "stage": "Offline",
+          "label": true,
+          "streaming": false,
+          "scaling": false,
+          "improver_update": true
+        },
+        {
+          "method": "HarnessCompass",
+          "object": "Harness",
+          "stage": "Offline",
+          "label": true,
+          "streaming": false,
+          "scaling": false,
+          "improver_update": false
+        },
+        {
+          "method": "MetaSkill-Evolve",
+          "object": "Skills",
+          "stage": "Offline",
+          "label": true,
+          "streaming": false,
+          "scaling": false,
+          "improver_update": true
+        },
+        {
+          "method": "HSI",
+          "object": "Harness + Strategy",
+          "stage": "Offline",
+          "label": true,
+          "streaming": false,
+          "scaling": false,
+          "improver_update": true
+        },
+        {
+          "method": "MemoHarness",
+          "object": "Harness",
+          "stage": "Both",
+          "label": true,
+          "streaming": false,
+          "scaling": false,
+          "improver_update": true
+        },
+        {
+          "method": "Recuris",
+          "object": "Memory Control",
+          "stage": "Both",
+          "label": true,
+          "streaming": false,
+          "scaling": true,
+          "improver_update": false
+        },
+        {
+          "method": "Harness-R1",
+          "object": "Harness",
+          "stage": "Both",
+          "label": true,
+          "streaming": false,
+          "scaling": false,
+          "improver_update": true
+        },
+        {
+          "method": "JIT-Agent",
+          "object": "Harness",
+          "stage": "Both",
+          "label": true,
+          "streaming": true,
+          "scaling": false,
+          "improver_update": true
+        },
+        {
+          "method": "ReasoningBank",
+          "object": "Memory",
+          "stage": "Online",
+          "label": false,
+          "streaming": true,
+          "scaling": true,
+          "improver_update": false
+        },
+        {
+          "method": "HyperSkill",
+          "object": "Skills",
+          "stage": "Online",
+          "label": true,
+          "streaming": true,
+          "scaling": false,
+          "improver_update": false
+        },
+        {
+          "method": "RHI",
+          "object": "Agent Workflow",
+          "stage": "Online",
+          "label": false,
+          "streaming": false,
+          "scaling": false,
+          "improver_update": false
+        },
+        {
+          "method": "Harness Scaling",
+          "object": "Harness",
+          "stage": "Online",
+          "label": false,
+          "streaming": false,
+          "scaling": true,
+          "improver_update": false
+        },
+        {
+          "method": "TTHE",
+          "object": "Harness",
+          "stage": "Online",
+          "label": true,
+          "streaming": true,
+          "scaling": false,
+          "improver_update": false
+        },
+        {
+          "method": "Evo-Harness",
+          "object": "Skills",
+          "stage": "Online",
+          "label": true,
+          "streaming": true,
+          "scaling": false,
+          "improver_update": false
+        },
+        {
+          "method": "Adaptive AH",
+          "object": "Harness",
+          "stage": "Online",
+          "label": true,
+          "streaming": true,
+          "scaling": false,
+          "improver_update": true
+        },
+        {
+          "method": "Continual Harness",
+          "object": "Harness",
+          "stage": "Online",
+          "label": false,
+          "streaming": false,
+          "scaling": false,
+          "improver_update": true
+        },
+        {
+          "method": "HCL",
+          "object": "Harness",
+          "stage": "Online",
+          "label": true,
+          "streaming": false,
+          "scaling": false,
+          "improver_update": false
+        },
+        {
+          "method": "Harness2",
+          "object": "Harness",
+          "stage": "Online",
+          "label": false,
+          "streaming": true,
+          "scaling": true,
+          "improver_update": true
+        }
+      ]
+    },
+    "table_6": {
+      "pdf_page": 23,
+      "source_label": "Table 6",
+      "executor": "Gemini 3.5 Flash",
+      "initial_harness": "OpenCode",
+      "k": 5,
+      "recursion": "parallel",
+      "note": "Remove component groups from already improved harnesses without rerunning improvement; prompt* is grouped prompt-related components; means only.",
+      "rows": [
+        {
+          "configuration": "base",
+          "scores": {
+            "Code": 73.4,
+            "Web": 69.9,
+            "Office": 74,
+            "Avg": 72.4
+          }
+        },
+        {
+          "configuration": "harness2_full",
+          "scores": {
+            "Code": 80.8,
+            "Web": 78.3,
+            "Office": 83.4,
+            "Avg": 80.8
+          }
+        },
+        {
+          "configuration": "without_prompt_group",
+          "scores": {
+            "Code": 78.8,
+            "Web": 76,
+            "Office": 83.1,
+            "Avg": 79.3
+          }
+        },
+        {
+          "configuration": "without_skills",
+          "scores": {
+            "Code": 77.2,
+            "Web": 71.4,
+            "Office": 77.9,
+            "Avg": 75.5
+          }
+        },
+        {
+          "configuration": "without_scripts",
+          "scores": {
+            "Code": 79.3,
+            "Web": 76,
+            "Office": 76,
+            "Avg": 77.1
+          }
+        }
+      ]
+    },
+    "table_7": {
+      "pdf_page": 25,
+      "source_label": "Table 7",
+      "executor": "Gemini 3.5 Flash",
+      "initial_harness": "OpenCode",
+      "k": 1,
+      "rows": [
+        {
+          "method": "base",
+          "benchmarks": {
+            "WorkBuddy-Bench": {
+              "tool_calls_per_task": 20,
+              "tool_error_percent": 0.8
+            },
+            "JobBench": {
+              "tool_calls_per_task": 27.4,
+              "tool_error_percent": 14.4
+            },
+            "LAB": {
+              "tool_calls_per_task": 20.8,
+              "tool_error_percent": 2
+            }
+          }
+        },
+        {
+          "method": "harness2",
+          "benchmarks": {
+            "WorkBuddy-Bench": {
+              "tool_calls_per_task": 17.8,
+              "tool_error_percent": 0.5
+            },
+            "JobBench": {
+              "tool_calls_per_task": 32.8,
+              "tool_error_percent": 9.1
+            },
+            "LAB": {
+              "tool_calls_per_task": 25.2,
+              "tool_error_percent": 1.6
+            }
+          }
+        }
+      ]
+    }
+  },
+  "main_summary": [
+    {
+      "executor": "Gemini 3.5 Flash",
+      "initial_harness": "OpenCode",
+      "benchmark": "WorkBuddy-Bench",
+      "metric": "avg_score",
+      "unit": "score_points_0_to_100",
+      "base_mean": 72.4,
+      "k1_mean": 77.5,
+      "k1_gain_over_base": 5.1,
+      "k5_delta": 3.3,
+      "k5_derived_mean": 80.8,
+      "source_pdf_page": 8
+    },
+    {
+      "executor": "Gemini 3.5 Flash",
+      "initial_harness": "OpenCode",
+      "benchmark": "JobBench",
+      "metric": "jobbench_score",
+      "unit": "score_points_0_to_100",
+      "base_mean": 31.5,
+      "k1_mean": 36,
+      "k1_gain_over_base": 4.5,
+      "k5_delta": 3,
+      "k5_derived_mean": 39,
+      "source_pdf_page": 9
+    },
+    {
+      "executor": "Gemini 3.5 Flash",
+      "initial_harness": "OpenCode",
+      "benchmark": "LAB",
+      "metric": "lab_partial",
+      "unit": "percent_criteria_passed",
+      "base_mean": 79.9,
+      "k1_mean": 81.9,
+      "k1_gain_over_base": 2,
+      "k5_delta": 2.6,
+      "k5_derived_mean": 84.5,
+      "source_pdf_page": 9
+    },
+    {
+      "executor": "Gemini 3.5 Flash",
+      "initial_harness": "Codex",
+      "benchmark": "WorkBuddy-Bench",
+      "metric": "avg_score",
+      "unit": "score_points_0_to_100",
+      "base_mean": 74.5,
+      "k1_mean": 77.5,
+      "k1_gain_over_base": 3,
+      "k5_delta": 2.9,
+      "k5_derived_mean": 80.4,
+      "source_pdf_page": 8
+    },
+    {
+      "executor": "Gemini 3.5 Flash",
+      "initial_harness": "Codex",
+      "benchmark": "JobBench",
+      "metric": "jobbench_score",
+      "unit": "score_points_0_to_100",
+      "base_mean": 33.9,
+      "k1_mean": 35.3,
+      "k1_gain_over_base": 1.4,
+      "k5_delta": 4.2,
+      "k5_derived_mean": 39.5,
+      "source_pdf_page": 9
+    },
+    {
+      "executor": "Gemini 3.5 Flash",
+      "initial_harness": "Codex",
+      "benchmark": "LAB",
+      "metric": "lab_partial",
+      "unit": "percent_criteria_passed",
+      "base_mean": 71.6,
+      "k1_mean": 75.6,
+      "k1_gain_over_base": 4,
+      "k5_delta": 2.9,
+      "k5_derived_mean": 78.5,
+      "source_pdf_page": 9
+    },
+    {
+      "executor": "GLM-5",
+      "initial_harness": "OpenCode",
+      "benchmark": "WorkBuddy-Bench",
+      "metric": "avg_score",
+      "unit": "score_points_0_to_100",
+      "base_mean": 64.2,
+      "k1_mean": 75.7,
+      "k1_gain_over_base": 11.5,
+      "k5_delta": 3.9,
+      "k5_derived_mean": 79.6,
+      "source_pdf_page": 8
+    },
+    {
+      "executor": "GLM-5",
+      "initial_harness": "OpenCode",
+      "benchmark": "JobBench",
+      "metric": "jobbench_score",
+      "unit": "score_points_0_to_100",
+      "base_mean": 20.6,
+      "k1_mean": 24.2,
+      "k1_gain_over_base": 3.6,
+      "k5_delta": 4.2,
+      "k5_derived_mean": 28.4,
+      "source_pdf_page": 9
+    },
+    {
+      "executor": "GLM-5",
+      "initial_harness": "OpenCode",
+      "benchmark": "LAB",
+      "metric": "lab_partial",
+      "unit": "percent_criteria_passed",
+      "base_mean": 59.6,
+      "k1_mean": 71.4,
+      "k1_gain_over_base": 11.8,
+      "k5_delta": 6.7,
+      "k5_derived_mean": 78.1,
+      "source_pdf_page": 9
+    },
+    {
+      "executor": "GLM-5",
+      "initial_harness": "Codex",
+      "benchmark": "WorkBuddy-Bench",
+      "metric": "avg_score",
+      "unit": "score_points_0_to_100",
+      "base_mean": 64.4,
+      "k1_mean": 75.3,
+      "k1_gain_over_base": 10.9,
+      "k5_delta": 3,
+      "k5_derived_mean": 78.3,
+      "source_pdf_page": 8
+    },
+    {
+      "executor": "GLM-5",
+      "initial_harness": "Codex",
+      "benchmark": "JobBench",
+      "metric": "jobbench_score",
+      "unit": "score_points_0_to_100",
+      "base_mean": 23.6,
+      "k1_mean": 24.8,
+      "k1_gain_over_base": 1.2,
+      "k5_delta": 3.1,
+      "k5_derived_mean": 27.9,
+      "source_pdf_page": 9
+    },
+    {
+      "executor": "GLM-5",
+      "initial_harness": "Codex",
+      "benchmark": "LAB",
+      "metric": "lab_partial",
+      "unit": "percent_criteria_passed",
+      "base_mean": 58.1,
+      "k1_mean": 65.9,
+      "k1_gain_over_base": 7.8,
+      "k5_delta": 4.8,
+      "k5_derived_mean": 70.7,
+      "source_pdf_page": 9
+    }
+  ],
+  "selected_figures": {
+    "figure_1": {
+      "pdf_page": 1,
+      "configuration": "Gemini 3.5 Flash / OpenCode / WorkBuddy-Bench",
+      "parallel_k5_domain_scores": {
+        "Code": 80.8,
+        "Web": 78.3,
+        "Office": 83.4
+      },
+      "gain_over_base": {
+        "Code": 7.4,
+        "Web": 8.4,
+        "Office": 9.4
+      },
+      "note": "These are k=5 results; not one-step gains."
+    },
+    "figure_4": {
+      "pdf_page": 6,
+      "kind": "method_diagram",
+      "note": "Parallel width k uses k reference executions, k candidates per scope, and k compositions; sequential chains k contrastive steps. It is not a performance plot."
+    },
+    "figure_5": {
+      "pdf_page": 9,
+      "configuration": "Gemini 3.5 Flash / OpenCode",
+      "parallel_endpoints": {
+        "Code": {
+          "k1": 76.5,
+          "k5": 80.8
+        },
+        "Office": {
+          "k1": 79.5,
+          "k5": 83.4
+        }
+      },
+      "note": "Intermediate curve points are deliberately not digitized. Both recursive forms rise monotonically for the plotted k=1..5 range; this is not a guarantee beyond the study."
+    },
+    "figure_6": {
+      "pdf_page": 10,
+      "configuration": "Gemini 3.5 Flash / OpenCode",
+      "compute_unit": "million tokens per task, logarithmic x axis",
+      "includes": "all execution and improvement tokens before final submission",
+      "reported_score_gains": {
+        "JobBench": {
+          "k1": 4.5,
+          "k5": 7.5
+        },
+        "WorkBuddy-Bench": {
+          "k1": 5.1,
+          "k5": 8.4
+        }
+      },
+      "note": "No exact token coordinates transcribed from plot. The two Harness2 configurations lie on the empirical plotted Pareto frontier, not a universal efficiency claim."
+    },
+    "figure_7": {
+      "pdf_page": 11,
+      "configuration": "Gemini 3.5 Flash / OpenCode / WorkBuddy-Bench",
+      "direct_editing_without_current_task_execution": {
+        "Code": {
+          "base": 73.4,
+          "without_library": 63.2,
+          "with_k1_library": 73.8,
+          "with_k5_library": 74.3
+        },
+        "Web": {
+          "base": 69.9,
+          "without_library": 65,
+          "with_k1_library": 72.6,
+          "with_k5_library": 74.3
+        },
+        "Office": {
+          "base": 74,
+          "without_library": 77.1,
+          "with_k1_library": 77.5,
+          "with_k5_library": 79.1
+        }
+      },
+      "jobbench_library_transfer_to_one_step_refinement": {
+        "Code": {
+          "k1": 76.5,
+          "plus_jobbench_experience": 77.1
+        },
+        "Web": {
+          "k1": 76.4,
+          "plus_jobbench_experience": 76.9
+        },
+        "Office": {
+          "k1": 79.5,
+          "plus_jobbench_experience": 82.4
+        }
+      },
+      "note": "The left panel bypasses reference executions and candidate probes for the current task; its k labels describe library accumulation budgets."
+    },
+    "figure_8": {
+      "pdf_page": 11,
+      "configuration": "same model serves as executor and editor / OpenCode / k=2",
+      "kind": "reported_means_from_bar_labels",
+      "rows": [
+        {
+          "model": "GLM-5",
+          "benchmarks": {
+            "WorkBuddy-Bench": {
+              "base": 64.2,
+              "harness2": 68.3
+            },
+            "JobBench": {
+              "base": 20.6,
+              "harness2": 23.5
+            },
+            "LAB": {
+              "base": 59.6,
+              "harness2": 73.3
+            }
+          }
+        },
+        {
+          "model": "Gemini 3.5 Flash",
+          "benchmarks": {
+            "WorkBuddy-Bench": {
+              "base": 72.4,
+              "harness2": 78.3
+            },
+            "JobBench": {
+              "base": 31.5,
+              "harness2": 32.4
+            },
+            "LAB": {
+              "base": 79.9,
+              "harness2": 81.6
+            }
+          }
+        },
+        {
+          "model": "Gemini 3.7 Flash",
+          "benchmarks": {
+            "WorkBuddy-Bench": {
+              "base": 78.3,
+              "harness2": 80.4
+            },
+            "JobBench": {
+              "base": 49.4,
+              "harness2": 51.2
+            },
+            "LAB": {
+              "base": 85.5,
+              "harness2": 89.1
+            }
+          }
+        },
+        {
+          "model": "Claude Opus 4.8",
+          "benchmarks": {
+            "WorkBuddy-Bench": {
+              "base": 76.6,
+              "harness2": 80.7
+            },
+            "JobBench": {
+              "base": 48.3,
+              "harness2": 50.8
+            },
+            "LAB": {
+              "base": 81.2,
+              "harness2": 85.6
+            }
+          }
+        },
+        {
+          "model": "Claude Opus 5",
+          "benchmarks": {
+            "WorkBuddy-Bench": {
+              "base": 78.9,
+              "harness2": 82.2
+            },
+            "JobBench": {
+              "base": 62.4,
+              "harness2": 67.9
+            },
+            "LAB": {
+              "base": 86.7,
+              "harness2": 89.7
+            }
+          }
+        }
+      ],
+      "note": "No SD shown on this figure; different editor configuration from the main tables."
+    },
+    "figure_11": {
+      "pdf_page": 24,
+      "kind": "offline_completed_library_reuse_analysis",
+      "values": {
+        "WorkBuddy-Bench": {
+          "original_k1": 77.5,
+          "leave_one_out_rerun": 79.4
+        },
+        "JobBench": {
+          "original_k1": 36,
+          "leave_one_out_rerun": 37.7
+        }
+      },
+      "note": "Own task entry excluded, but earlier and later task entries available; repeated execution may also contribute."
+    }
+  },
+  "caveats": [
+    "Numbers are reported means and SD over only three streams; no significance test or confidence interval is supplied by Tables 1-3.",
+    "All derived k=5 totals sum displayed rounded k=1 means and displayed deltas; they can differ from recomputation on unrounded data.",
+    "Benchmark-configuration claims use WorkBuddy Avg, JobBench Score, LAB Partial; domain-level dominance is stronger and not supported for every domain.",
+    "Meta-Harness is offline optimized with labeled training/development tasks and its reported comparison includes different preparation resources.",
+    "Table 4 encodes the paper authors' literature categorization under their definitions; it does not independently verify those cited systems.",
+    "Figure 11 leave-one-out uses a completed library including later-task entries and can benefit from repeated execution; it is offline reuse analysis.",
+    "Figure 12 gives GLM-5 Code baseline 58.5 whereas Table 1 gives 58.4, and Office baseline 73.7 whereas Table 1 gives 75.1; preserve panel-specific values and do not silently merge. V1 does not explain the differences.",
+    "LAB Partial is criterion-based; the paper does not specify the total criterion denominator for the evaluated 100-task subset. Do not convert rates to criterion counts from the number of tasks."
+  ]
+}
