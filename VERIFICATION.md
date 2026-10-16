@@ -25,9 +25,13 @@ python scripts/check_docs.py
 
 It checks exact publication scope, UTF-8/control characters, local Markdown links and GitHub-style heading anchors, balanced fences, PDF page bounds, source pins, JSON metadata/evidence consistency, selected numeric invariants and derived arithmetic, citation fields, and patterns for private identifiers or credentials. These checks cannot establish scientific validity or detect every prose transcription error. External links and the CFF schema are preparation checks rather than network-dependent CI requirements.
 
-GitHub Actions runs the same checker on pushes and pull requests with read-only contents permissions. Publication and final CI results are recorded after the remote checks complete.
+GitHub Actions runs the same checker on pushes and pull requests with read-only contents permissions. The [workflow page](https://github.com/0xHayd3n/harness2-guide/actions/workflows/docs.yml) shows current-head results.
 
 Preparation checks on October 16, 2026 passed: all 24 intended files; structured table/derived-summary consistency; all 19 evidence-indexed claims and eight source records; the official CFF 1.2.0 JSON schema using YAML parsing and JSON Schema validation; and unauthenticated HTTP GET checks returning 200 for all 13 distinct external documentation URLs. The checker was also exercised with deliberately broken arithmetic, fabricated k = 5 uncertainty, wrong paper titles, unpinned PDFs, invalid pages, private-source patterns, and unexpected files to verify that those defects are rejected.
+
+## Publication evidence
+
+The repository was created as public under `0xHayd3n/harness2-guide`, without a name collision. First publication commit `622c25b376f983783041ae4477fc81f9f9284e91` passed [Documentation checks](https://github.com/0xHayd3n/harness2-guide/actions/runs/38857616232). Anonymous HTTP retrieval of the repository returned 200, public API metadata reported `private: false`, and every one of its 24 remote file blobs matched the committed local bytes. The remote tree contained only the intended publication files. Follow-up editorial changes use the same checker and workflow; the task completion report identifies the final verified commit.
 
 ## Limits
 

@@ -1,6 +1,6 @@
-# Paper map
+# 5. Paper map
 
-[Overview](../README.md) · [Critical reading](04-critical-reading.md)
+[Previous: critical reading](04-critical-reading.md) · [Overview](../README.md) · [Next: discussion](06-discussion-and-reproduction.md)
 
 This map covers **arXiv:2610.14224v1**, *Harness2: Recursive Agent Harnessing for an Open World*, in its 37-page PDF. Page references below use the PDF's printed page numbers, which match the PDF page positions. Links open the pinned [v1 PDF](https://arxiv.org/pdf/2610.14224v1); a PDF viewer may ignore the page fragment. Descriptions are original reading aids, not reproductions of the paper's figures or prompts.
 
@@ -132,6 +132,8 @@ Other notation introduced in §§2.1–2.3:
 
 ## Source-sensitive details
 
-Page 1 prints a document date of 2026-10-12, while the arXiv margin identifies v1 as 9 October 2026. Keep version identification anchored to **2610.14224v1**, rather than treating those printed dates as interchangeable. Figure 12's GLM-5 Code baseline is 58.5, while Table 1's main-table base is 58.4; the guide preserves the source-specific context instead of silently reconciling the values.
+Page 1 prints a document date of 2026-10-12, while the arXiv margin identifies v1 as 9 October 2026. Keep version identification anchored to **2610.14224v1**, rather than treating those printed dates as interchangeable. Figure 12's GLM-5 baselines are 58.5 on Code and 73.7 on Office, while Table 1's corresponding main-table bases are 58.4 and 75.1; the guide preserves each analysis's context instead of silently reconciling the values.
 
 This map describes the pinned paper, including its appendix prompts. It does not claim the current authors' repository implements every printed detail, and it is not a reproduction or experimental run.
+
+[Previous: critical reading](04-critical-reading.md) · [Overview](../README.md) · [Next: discussion](06-discussion-and-reproduction.md)

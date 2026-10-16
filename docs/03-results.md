@@ -181,4 +181,3 @@ The JSON deliberately omits invented uncertainty estimates and precise coordinat
 Two cross-analysis baseline discrepancies are preserved: **Figure 12 uses a GLM-5 Code base of 58.5, while Table 1 reports 58.4; its Office base is 73.7, while Table 1 reports 75.1**. The guide uses each source's value in its own context rather than silently rewriting either. The appendix result is a separate transfer analysis; v1 does not explain the differences. [Table 1, p. 8; Appendix E.3, p. 24.](https://arxiv.org/pdf/2610.14224v1#page=24)
 
 [Previous: Method](02-method.md) · [Overview](../README.md) · [Next: Critical reading](04-critical-reading.md)
-

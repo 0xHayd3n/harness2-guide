@@ -1,6 +1,6 @@
-# Critical reading
+# 4. Critical reading
 
-[Overview](../README.md) · [Paper map](05-paper-map.md)
+[Previous: results](03-results.md) · [Overview](../README.md) · [Next: paper map](05-paper-map.md)
 
 The strongest reading of Harness2 is that **structured, execution-informed harness editing can improve bounded professional-task performance while retaining useful experience for later editing**. The paper's own failure cases make the boundary equally clear: a better-looking trajectory, agreement among editors, and a selected artifact do not establish correctness or causal attribution.
 
@@ -145,3 +145,5 @@ The prompt's rejection of a formula when the request explicitly requires a deliv
 - Which retained facts should expire, and can a later task detect that a previously useful rule is now misleading?
 
 These are open reading questions, not claims that the paper ran and failed those studies. The useful engineering lesson is to keep proposal quality, probe reliability, selection, attribution, and retention separately inspectable; success in one does not settle the others.
+
+[Previous: results](03-results.md) · [Overview](../README.md) · [Next: paper map](05-paper-map.md)
